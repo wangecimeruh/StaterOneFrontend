@@ -1,0 +1,43 @@
+<h3 class="pb-2 mb-0"><b>Customers</b></h3>
+<table class="table table-striped table-dark table-bordered">
+  <thead class="thead-light">
+    <button class="btn btn-primary" routerLink="/createcustomer">
+      <span class="badge badge-dark"></span>
+      Create Customer
+    </button>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">PhoneNumber</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+      <!-- <th scope="col">PlateNumber</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customer">
+      <td>{{customer.name}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.phoneNumber}}</td>
+      <!-- <td>{{customer.plateNumber}}</td> -->
+
+      <td>
+        <button class="btn btn-info btn-sm">
+          <span></span>
+          edit
+        </button>
+      </td>
+      <td>
+        <button 
+        (click)="onDelete(customer.id)"
+         class="btn btn-danger btn-sm"> 
+          <span class="oi oi-trash"></span>
+          delete
+        </button>
+      </td>
+    </tr>
+    <!-- <tr *ngIf="loading">
+     <td colspan="5" align="center">Fetching Employees</td>
+    </tr> -->
+  </tbody>
+</table>

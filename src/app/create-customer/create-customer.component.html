@@ -1,0 +1,53 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
+        <h3><b>Create Customer</b></h3>
+        <div class="form-group col-xs-2">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]='customer.name'
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="Enter your name"
+            required #name="ngModel">
+          </div>
+        <div class="form-group col-xs-2">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" [(ngModel)]='customer.phoneNumber'
+            class="form-control" 
+            id="phoneNumber" 
+            name="phoneNumber" 
+            placeholder="Enter your Phone Number"
+            required #phoneNumber="ngModel">
+        </div>
+        <div class="form-group col-xs-2">
+          <label for="email">Email</label>
+          <input type="text" [(ngModel)]='customer.email' 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            placeholder="Enter your email address"
+            required #email="ngModel">
+          <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
+        </div>
+        <div class="form-group" col-xs-2>
+          <label for="email">Plate Number</label>
+          <input type="text" [(ngModel)]='customer.plateNumber' 
+            class="form-control" 
+            id="plateNumber" 
+            name="plateNumber" 
+            placeholder="Enter your vehicles plateNumber "
+            required #email="ngModel">
+
+        </div>
+        
+        <button type="submit" [disabled]="!customerForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+
+      <button class="btn btn-primary btn-sm float-right" routerLink="/customer">
+        <span class="badge badge-dark "></span>
+        go back
+      </button>
+    </div>
+  </div>
