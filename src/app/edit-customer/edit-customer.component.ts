@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import { Customer } from '../customer';
+import { CustomerServiceService } from '../customer-service.service';
 
 @Component({
   selector: 'app-edit-customer',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditCustomerComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  customers!: Customer[];
+  customer!: Customer;
+  editForm!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder,
+   private apiService: CustomerServiceService) { }
+
+  ngOnInit(){
+    this.customer = this.apiService.getUser();
+    console.log('********************************** ',this.customer);
+    
+    this.editForm = this.formBuilder.group({
+        id: [''],
+        name:[''],
+        phoneNumber: [''],
+        email: ['']
+
+      
+    });
+}
+get customerArray() {
+  return (<FormArray>this.editForm.get('customers'));
+  // return "Hello";
+}
+
+onSubmit() {
+  
+  console.log(this.editForm.value);
+}
 
 }

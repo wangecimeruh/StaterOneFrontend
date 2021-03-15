@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Customer } from '../customer';
 import { CustomerServiceService } from '../customer-service.service';
 
@@ -10,25 +11,27 @@ import { CustomerServiceService } from '../customer-service.service';
 export class CustomerComponent implements OnInit {
 
   customer: Customer[] | undefined;
-  customers: Customer;
+  @Input() customers: Customer;
   customerServiceService: any;
   
-  constructor(private customerService:CustomerServiceService) {
+  constructor(private customerService:CustomerServiceService,private route : Router) {
     this.customers = new Customer();
    }
 
   ngOnInit(): void {
     this.customerService.findAll().subscribe(data => {
       this.customer = data;
-
-
     });
   } 
   onDelete(id : any){
-    alert(id);
-this.customerServiceService.delete(id).subscribe;
+   
+    this.customerService.delete(id).subscribe();
  
   
+  }
+  edit(customer: Customer) {
+    this.customerService.setUser(customer);
+    this.route.navigate(['editcustomer']);
   }
 
     
