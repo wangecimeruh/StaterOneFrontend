@@ -22,19 +22,22 @@
       <button type="submit" (click)="onSubmit()" class="btn btn-success">Update</button>
     </form>
   </div> -->
-  <div class="col-md-6 user-container">
+  <div class="col-md-12 col-md-offset-6">
     <h2 class="text-center">Edit Customer</h2>
-  <form>
-          <label>Name:
-            <input type="text" [(ngModel)]="customer.name" [ngModelOptions]="{standalone: true}">
+  <form class="col-md-12 col-md-offset-6">
+          <label><b>Name</b>
+            <input class="form-control form-control-lg" type="text" [(ngModel)]="customer.name" [ngModelOptions]="{standalone: true}">
           </label>
-          <label>Phone:
-            <input type="text" [(ngModel)]="customer.phoneNumber" [ngModelOptions]="{standalone: true}">
+          <br>
+          <label><b>Phone:</b>
+            <input class="form-control form-control-lg" type="text" [(ngModel)]="customer.phoneNumber" [ngModelOptions]="{standalone: true}">
           </label>
-          <label>Email:
-            <input type="text" [(ngModel)]="customer.email" [ngModelOptions]="{standalone: true}">
+          <br>
+          <label><b>Email:</b>
+            <input class="form-control form-control-lg" type="text" [(ngModel)]="customer.email" [ngModelOptions]="{standalone: true}">
           </label>
-    <button type="submit" (click)="onSubmit()">Submit</button>
+          <br>
+    <button class="btn btn-secondary" type="submit" (click)="onSubmit()">Submit</button>
   </form>
   </div>
   

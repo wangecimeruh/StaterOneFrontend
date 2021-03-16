@@ -19,7 +19,9 @@ export class CreateCustomerComponent implements OnInit {
    }
   
   onSubmit() {
-    this.customerServiceService.save(this.customer);
+    this.customerServiceService.save(this.customer).subscribe((response: any) => {
+      console.log('************** ',response);
+    });
   }
 
   ngOnInit(): void {

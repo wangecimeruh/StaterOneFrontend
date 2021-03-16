@@ -1,0 +1,34 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #vehicleForm="ngForm">
+        <h3><b>Add Vehicle</b></h3>
+        <div class="form-group col-xs-2">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]='customer.email'
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="Enter your email"
+            required #name="ngModel">
+          </div>
+        <div class="form-group" col-xs-2>
+          <label for="platenumber">Plate Number</label>
+          <input type="text" [(ngModel)]='vehicle.plateNumber' 
+            class="form-control" 
+            id="plateNumber" 
+            name="plateNumber" 
+            placeholder="Enter your vehicles plateNumber "
+            required #email="ngModel">
+
+        </div>
+        
+        <button type="submit" [disabled]="!vehicleForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+
+      <button class="btn btn-primary btn-sm float-right" routerLink="/vehicle">
+        <span class="badge badge-dark "></span>
+        go back
+      </button>
+    </div>
+  </div>

@@ -31,10 +31,6 @@ export class EditCustomerComponent implements OnInit {
       
     });
 }
-get customerArray() {
-  return (<FormArray>this.editForm.get('customers'));
-  // return "Hello";
-}
 
 onSubmit() {
   

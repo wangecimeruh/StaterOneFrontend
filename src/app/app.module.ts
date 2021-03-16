@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerServiceService } from './customer-service.service';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 
 
 
@@ -21,7 +23,9 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     NavbarComponent,
     CustomerComponent,
     CreateCustomerComponent,
-    EditCustomerComponent
+    EditCustomerComponent,
+    VehiclesComponent,
+    VehicleCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Customer } from '../customer';
+import { CustomerId } from '../customer-id';
 import { CustomerServiceService } from '../customer-service.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { CustomerServiceService } from '../customer-service.service';
 export class CustomerComponent implements OnInit {
 
   customer: Customer[] | undefined;
+  customerId!: CustomerId;
   @Input() customers: Customer;
   customerServiceService: any;
   
@@ -24,8 +26,8 @@ export class CustomerComponent implements OnInit {
     });
   } 
   onDelete(id : any){
-   
-    this.customerService.delete(id).subscribe();
+   alert(id);
+  this.customerService.delete(id).subscribe();
  
   
   }

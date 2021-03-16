@@ -1,0 +1,33 @@
+<h3 class="pb-2 mb-0"><b>Customers</b></h3>
+<table class="table table-striped table-dark table-bordered">
+  <thead class="thead-light">
+    <button class="btn btn-primary" routerLink="/vehicleCreate">
+      <span class="badge badge-dark"></span>
+      Add Vehicle
+    </button>
+    <tr>
+      <th scope="col">Vehicle Owner</th>
+      <th scope="col">Vehicle Plate Number</th>
+      <th scope="col">Delete</th>
+
+      <!-- <th scope="col">PlateNumber</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vehicle of vehicle">
+      <td>{{vehicle.customer}}</td>
+      <td>{{vehicle.plateNumber}}</td>
+      <td>
+        <button 
+        (click)="onDelete(vehicle.id)"
+         class="btn btn-danger btn-sm"> 
+          <span class="oi oi-trash"></span>
+          delete
+        </button>
+      </td>
+    </tr>
+    <!-- <tr *ngIf="loading">
+     <td colspan="5" align="center">Fetching Employees</td>
+    </tr> -->
+  </tbody>
+</table>
